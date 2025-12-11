@@ -1,3 +1,46 @@
 .saludo {
   font-size: 100px;
+<<<<<<< HEAD
+=======
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 70px;
+}
+
+#form {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+#form input,
+#form button {
+  height: 60px;
+  font-size: 40px;
+  margin: 0 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+#form button {
+  padding: 0 30px;
+  background-color: rgb(133, 164, 155);
+}
+
+ul {
+  font-size: 50px;
+}
+
+#buttonList {
+  font-size: 40px;
+  background-color: rgb(181, 36, 36);
+  padding: 4px 10px;
+  margin: 0 30px;
+  float: right;
+  margin-left: 50px;
+>>>>>>> 97f768ffcfd53cbd5d1eb3a4a9f126005220bc75
 }
