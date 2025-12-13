@@ -14,21 +14,45 @@ export default function App() {
     }
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("list", JSON.stringify(list));
-  }, [list]);
-
   function addTask() {
-    setList([...list, task]);
+    if (task.trim() === "") return;
+
+    setList(() => {
+      const updatedList = [...list, task];
+      localStorage.setItem("list", JSON.stringify(updatedList));
+
+      return updatedList;
+    });
     setTask("");
   }
+
+  function removeTask(i) {
+    setList(() => {
+      const updatedList = list.filter((_, index) => index !== i);
+      localStorage.setItem("list", JSON.stringify(updatedList));
+
+      return updatedList;
+    });
+  }
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      addTask();
+    }
+  };
 
   return (
     <>
       <div className="container">
         <form id="form">
           <label>Task: </label>
-          <input value={task} onChange={(e) => setTask(e.target.value)}></input>
+          <input
+            value={task}
+            onChange={(e) => setTask(e.target.value)}
+            placeholder="Write your task here"
+            onKeyDown={handleKeyPress}
+            autoFocus
+          ></input>
           <button type="button" onClick={addTask}>
             Add
           </button>
@@ -39,12 +63,7 @@ export default function App() {
             return (
               <li key={i}>
                 {t}
-                <button
-                  id="buttonList"
-                  onClick={() => {
-                    setList(list.filter((_, index) => index !== i));
-                  }}
-                >
+                <button id="buttonList" onClick={() => removeTask(i)}>
                   X
                 </button>
               </li>
