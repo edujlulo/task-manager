@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 export default function App() {
   const [task, setTask] = useState("");
   const [list, setList] = useState([]);
+  const [error, setError] = useState(false);
 
   // setList(JSON.parse(localStorage.getItem("list")));
 
@@ -15,11 +16,16 @@ export default function App() {
   }, []);
 
   function addTask() {
-    if (task.trim() === "") return;
+    if (task.trim() === "") {
+      setError(true);
+
+      return;
+    }
 
     setList(() => {
       const updatedList = [...list, task];
       localStorage.setItem("list", JSON.stringify(updatedList));
+      setError(false);
 
       return updatedList;
     });
@@ -58,18 +64,22 @@ export default function App() {
           </button>
         </form>
 
-        <ul>
-          {list.map((t, i) => {
-            return (
-              <li key={i}>
-                {t}
-                <button id="buttonList" onClick={() => removeTask(i)}>
-                  X
-                </button>
-              </li>
-            );
-          })}
-        </ul>
+        {error && <p className="errorMessage">Please enter a valid value</p>}
+
+        <div id="listContainer">
+          <ul>
+            {list.map((t, i) => {
+              return (
+                <li key={i}>
+                  {t}
+                  <button id="buttonList" onClick={() => removeTask(i)}>
+                    X
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </>
   );
