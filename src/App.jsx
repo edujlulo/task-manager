@@ -6,8 +6,6 @@ export default function App() {
   const [list, setList] = useState([]);
   const [error, setError] = useState(false);
 
-  // setList(JSON.parse(localStorage.getItem("list")));
-
   useEffect(() => {
     const storedList = JSON.parse(localStorage.getItem("list"));
     if (storedList) {
