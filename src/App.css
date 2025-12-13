@@ -47,16 +47,6 @@ li:last-child {
   border-bottom: none;
 }
 
-#buttonList {
-  font-size: 40px;
-  background-color: rgb(181, 36, 36);
-  padding: 10px 20px;
-  margin: 0 30px;
-  float: right;
-  border-radius: 100px;
-  flex-shrink: 0;
-}
-
 .errorMessage {
   font-size: 40px;
   color: black;
@@ -78,11 +68,26 @@ li:last-child {
   overflow-wrap: break-word;
 }
 
-li button {
-  font-size: 40px;
-  background-color: rgb(181, 36, 36);
-  padding: 4px 10px;
-  border-radius: 100px;
-  border: 1px solid black;
+.buttonList,
+.editButton {
+  background-color: transparent;
+  border: none;
+  padding: 5px 10px;
+  font-size: 45px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.buttonList:hover,
+.editButton:hover {
+  color: #4c9681;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 10px; /* espacio entre botones */
+  align-items: center;
 }
