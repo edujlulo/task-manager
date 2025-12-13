@@ -1,9 +1,3 @@
-.saludo {
-  font-size: 100px;
-<<<<<<< HEAD
-=======
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -42,5 +36,4 @@ ul {
   margin: 0 30px;
   float: right;
   margin-left: 50px;
->>>>>>> 97f768ffcfd53cbd5d1eb3a4a9f126005220bc75
 }

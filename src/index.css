@@ -1,15 +1,4 @@
-<<<<<<< HEAD
-html,
-body {
-  height: 100%;
-  width: 100%;
-}
-
-body {
-  background-color: green !important;
-=======
 body {
   background-color: rgb(109, 158, 94);
   font-family: Arial, Helvetica, sans-serif;
->>>>>>> 97f768ffcfd53cbd5d1eb3a4a9f126005220bc75
 }

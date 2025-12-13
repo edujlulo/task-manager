@@ -1,13 +1,22 @@
-<<<<<<< HEAD
-export default function () {
-  return <p className="saludo">Hello world</p>;
-=======
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function App() {
   const [task, setTask] = useState("");
   const [list, setList] = useState([]);
+
+  // setList(JSON.parse(localStorage.getItem("list")));
+
+  useEffect(() => {
+    const storedList = JSON.parse(localStorage.getItem("list"));
+    if (storedList) {
+      setList(storedList);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("list", JSON.stringify(list));
+  }, [list]);
 
   function addTask() {
     setList([...list, task]);
@@ -45,5 +54,4 @@ export default function App() {
       </div>
     </>
   );
->>>>>>> 97f768ffcfd53cbd5d1eb3a4a9f126005220bc75
 }
