@@ -1,3 +1,5 @@
+/* General container */
+
 .container {
   display: flex;
   flex-direction: column;
@@ -6,10 +8,15 @@
   margin-top: 70px;
 }
 
+/* Form */
+
 #form {
   font-size: 60px;
   font-weight: bold;
   margin-bottom: -15px;
+  display: flex;
+  flex-wrap: wrap; /* se ajusta si pantalla pequeña */
+  justify-content: center;
 }
 
 #form input,
@@ -24,7 +31,10 @@
 #form button {
   padding: 0 30px;
   background-color: rgb(76, 150, 129);
+  cursor: pointer;
 }
+
+/* List  */
 
 ul {
   font-size: 50px;
@@ -37,7 +47,7 @@ li {
   border-bottom: 1px solid #000;
   padding: 15px 10px;
   display: flex;
-  justify-content: space-between; /* botón a la derecha */
+  justify-content: space-between;
   align-items: center;
   white-space: normal;
   word-break: break-word;
@@ -47,25 +57,40 @@ li:last-child {
   border-bottom: none;
 }
 
+.dateMessage {
+  color: rgb(126, 126, 126);
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+/* Error message  */
+
 .errorMessage {
-  font-size: 40px;
+  font-size: 30px;
   color: black;
   background-color: rgb(210, 47, 47);
   padding: 4px 30px;
-  margin-bottom: -20px;
+  margin-bottom: -10px;
+  text-align: center;
 }
 
 #listContainer {
-  margin-top: 100px;
+  margin-top: 50px;
   background-color: aliceblue;
   border-radius: 20px;
-  min-width: 1400px; /* ancho mínimo */
-  width: auto; /* ancho automático según contenido */
-  max-width: 80vw; /* máximo 80% del viewport */
+  min-width: 1000px;
+  width: 80%;
+  max-width: 1400px;
   padding: 20px;
   box-sizing: border-box;
-  position: relative;
   overflow-wrap: break-word;
+}
+
+@media (max-width: 600px) {
+  #listContainer {
+    width: 90%;
+    min-width: unset; /* quitamos el mínimo para que se adapte */
+  }
 }
 
 .buttonList,
@@ -73,7 +98,7 @@ li:last-child {
   background-color: transparent;
   border: none;
   padding: 5px 10px;
-  font-size: 45px;
+  font-size: 40px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -86,8 +111,51 @@ li:last-child {
   color: #4c9681;
 }
 
+/* Buttons group for align correctly */
+
 .buttonGroup {
   display: flex;
-  gap: 10px; /* espacio entre botones */
-  align-items: center;
+  gap: 10px;
+}
+
+/* Media queries */
+
+/* Tablets and medium screens */
+@media (max-width: 1200px) {
+  #listContainer {
+    width: 80%;
+    min-width: unset;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  #listContainer {
+    width: 90%;
+    padding: 15px;
+  }
+
+  #form {
+    flex-direction: column;
+    font-size: 30px;
+  }
+
+  #form input,
+  #form button {
+    width: 100%;
+    font-size: 20px;
+    height: 45px;
+    margin: 5px 0;
+  }
+
+  li {
+    font-size: 20px;
+    padding: 10px 5px;
+  }
+
+  .buttonList,
+  .editButton {
+    font-size: 25px;
+    padding: 3px 5px;
+  }
 }

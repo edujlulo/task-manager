@@ -21,7 +21,9 @@ export default function App() {
       return;
     }
 
-    const updatedList = [...list, task];
+    const newTask = { text: task, createdAt: new Date() };
+
+    const updatedList = [...list, newTask];
     setList(updatedList);
     localStorage.setItem("list", JSON.stringify(updatedList));
     setTask("");
