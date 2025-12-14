@@ -17,6 +17,10 @@
   display: flex;
   flex-wrap: wrap; /* se ajusta si pantalla pequeña */
   justify-content: center;
+  background-color: rgb(65, 108, 177);
+  padding: 35px 50px;
+  border-radius: 20px;
+  border: 2px solid black;
 }
 
 #form input,
@@ -30,7 +34,7 @@
 
 #form button {
   padding: 0 30px;
-  background-color: rgb(76, 150, 129);
+  background-color: rgb(21, 160, 158);
   cursor: pointer;
 }
 
@@ -84,6 +88,7 @@ li:last-child {
   padding: 20px;
   box-sizing: border-box;
   overflow-wrap: break-word;
+  border: 2px solid black;
 }
 
 @media (max-width: 600px) {
@@ -93,6 +98,7 @@ li:last-child {
   }
 }
 
+.checkBox,
 .buttonList,
 .editButton {
   background-color: transparent;
@@ -106,6 +112,7 @@ li:last-child {
   margin-left: 10px;
 }
 
+.checkBox:hover,
 .buttonList:hover,
 .editButton:hover {
   color: #4c9681;
@@ -158,4 +165,9 @@ li:last-child {
     font-size: 25px;
     padding: 3px 5px;
   }
+}
+
+.completedTask {
+  text-decoration: line-through;
+  color: gray;
 }

@@ -7,6 +7,7 @@ export default function App() {
   const [task, setTask] = useState("");
   const [list, setList] = useState([]);
   const [error, setError] = useState(false);
+  const [checkedBox, setCheckedBox] = useState(false);
 
   useEffect(() => {
     const storedList = JSON.parse(localStorage.getItem("list"));
@@ -21,7 +22,7 @@ export default function App() {
       return;
     }
 
-    const newTask = { text: task, createdAt: new Date() };
+    const newTask = { text: task, createdAt: new Date(), checked: false };
 
     const updatedList = [...list, newTask];
     setList(updatedList);
@@ -36,6 +37,15 @@ export default function App() {
     localStorage.setItem("list", JSON.stringify(updatedList));
   };
 
+  // Check box for toggle task completion
+
+  function toggleTaskCompletion(i) {
+    const updatedList = [...list];
+    updatedList[i].checked = !updatedList[i].checked;
+    setList(updatedList);
+    localStorage.setItem("list", JSON.stringify(updatedList));
+  }
+
   return (
     <div className="container">
       <TaskInput
@@ -47,7 +57,11 @@ export default function App() {
       />
       {error && <p className="errorMessage">Please enter a valid value</p>}
       <div id="listContainer">
-        <TaskList list={list} removeTask={removeTask} />
+        <TaskList
+          list={list}
+          removeTask={removeTask}
+          toggleTaskCompletion={toggleTaskCompletion}
+        />
       </div>
     </div>
   );
