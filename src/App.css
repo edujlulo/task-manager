@@ -1,55 +1,53 @@
-/* General container */
+html {
+  font-size: 16px;
+}
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-top: 70px;
+  margin-top: 2.625rem;
 }
 
-/* Form */
-
 #form {
-  font-size: 60px;
+  font-size: 2.25rem;
   font-weight: bold;
-  margin-bottom: -15px;
+  margin-bottom: -0.5625rem;
   display: flex;
-  flex-wrap: wrap; /* se ajusta si pantalla pequeña */
+  flex-wrap: wrap;
   justify-content: center;
   background-color: rgb(65, 108, 177);
-  padding: 35px 50px;
-  border-radius: 20px;
-  border: 2px solid black;
+  padding: 1.3125rem 1.875rem;
+  border-radius: 0.75rem;
+  border: 0.075rem solid black;
 }
 
 #form input,
 #form button {
-  height: 60px;
-  font-size: 40px;
-  margin: 0 10px;
+  height: 2.25rem;
+  font-size: 1.5rem;
+  margin: 0 0.375rem;
   box-sizing: border-box;
-  border-radius: 10px;
+  border-radius: 0.375rem;
 }
 
 #form button {
-  padding: 0 30px;
+  padding: 0 1.125rem;
   background-color: rgb(21, 160, 158);
   cursor: pointer;
 }
 
-/* List  */
-
 ul {
-  font-size: 50px;
+  font-size: 1.875rem;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
 li {
-  border-bottom: 1px solid #000;
-  padding: 15px 10px;
+  border-bottom: 0.0375rem solid #000;
+  padding: 0.5625rem 0.375rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -63,38 +61,36 @@ li:last-child {
 
 .dateMessage {
   color: rgb(126, 126, 126);
-  font-size: 30px;
-  margin-top: 10px;
+  font-size: 1.125rem;
+  margin-top: 0.375rem;
 }
 
-/* Error message  */
-
 .errorMessage {
-  font-size: 30px;
+  font-size: 1.125rem;
   color: black;
   background-color: rgb(210, 47, 47);
-  padding: 4px 30px;
-  margin-bottom: -10px;
+  padding: 0.15rem 1.125rem;
+  margin-bottom: -0.375rem;
   text-align: center;
 }
 
 #listContainer {
-  margin-top: 50px;
+  margin-top: 1.875rem;
   background-color: aliceblue;
-  border-radius: 20px;
-  min-width: 1000px;
+  border-radius: 0.75rem;
+  min-width: 37.5rem;
   width: 80%;
-  max-width: 1400px;
-  padding: 20px;
+  max-width: 52.5rem;
+  padding: 0.75rem;
   box-sizing: border-box;
   overflow-wrap: break-word;
-  border: 2px solid black;
+  border: 0.075rem solid black;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 37.5rem) {
   #listContainer {
     width: 90%;
-    min-width: unset; /* quitamos el mínimo para que se adapte */
+    min-width: unset;
   }
 }
 
@@ -103,13 +99,13 @@ li:last-child {
 .editButton {
   background-color: transparent;
   border: none;
-  padding: 5px 10px;
-  font-size: 40px;
+  padding: 0.1875rem 0.375rem;
+  font-size: 1.5rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 10px;
+  margin-left: 0.375rem;
 }
 
 .checkBox:hover,
@@ -118,52 +114,46 @@ li:last-child {
   color: #4c9681;
 }
 
-/* Buttons group for align correctly */
-
 .buttonGroup {
   display: flex;
-  gap: 10px;
+  gap: 0.375rem;
 }
 
-/* Media queries */
-
-/* Tablets and medium screens */
-@media (max-width: 1200px) {
+@media (max-width: 75rem) {
   #listContainer {
     width: 80%;
     min-width: unset;
   }
 }
 
-/* Phones */
-@media (max-width: 600px) {
+@media (max-width: 37.5rem) {
   #listContainer {
     width: 90%;
-    padding: 15px;
+    padding: 0.5625rem;
   }
 
   #form {
     flex-direction: column;
-    font-size: 30px;
+    font-size: 1.125rem;
   }
 
   #form input,
   #form button {
     width: 100%;
-    font-size: 20px;
-    height: 45px;
-    margin: 5px 0;
+    font-size: 0.75rem;
+    height: 1.6875rem;
+    margin: 0.1875rem 0;
   }
 
   li {
-    font-size: 20px;
-    padding: 10px 5px;
+    font-size: 0.75rem;
+    padding: 0.375rem 0.1875rem;
   }
 
   .buttonList,
   .editButton {
-    font-size: 25px;
-    padding: 3px 5px;
+    font-size: 0.9375rem;
+    padding: 0.1125rem 0.1875rem;
   }
 }
 
