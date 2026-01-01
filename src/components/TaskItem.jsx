@@ -8,7 +8,6 @@ import ItemEdit from "./ItemEdit";
 
 export default function TaskItem({
   task,
-  index,
   removeTask,
   toggleTaskCompletion,
   isEditing,
@@ -27,7 +26,7 @@ export default function TaskItem({
         {!showItemEdit && (
           <div className={task.checked ? "completedTask" : ""}>{task.text}</div>
         )}
-        {showItemEdit && <ItemEdit />}
+        {showItemEdit && <ItemEdit task={task} />}
         <div className="dateMessage">
           Created on: {new Date(task.createdAt).toLocaleString()}
         </div>
@@ -35,7 +34,7 @@ export default function TaskItem({
       <div className="buttonGroup">
         <button
           className={`checkBox ${isEditing ? "disabled" : ""}`}
-          onClick={() => toggleTaskCompletion(index)}
+          onClick={() => toggleTaskCompletion(task.id)}
           disabled={isEditing}
         >
           <FontAwesomeIcon icon={task.checked ? faSquareCheck : faSquare} />
@@ -49,7 +48,7 @@ export default function TaskItem({
         </button>
         <button
           className={`deleteButton ${isEditing ? "disabled" : ""}`}
-          onClick={() => removeTask(index)}
+          onClick={() => removeTask(task.id)}
           disabled={isEditing}
         >
           <FontAwesomeIcon icon={faTrashCan} />

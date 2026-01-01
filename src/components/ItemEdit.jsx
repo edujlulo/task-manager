@@ -1,7 +1,22 @@
-export default function ItemEdit() {
+import { useEffect, useState } from "react";
+
+export default function ItemEdit({ task }) {
+  const [editInputValue, setEditInputValue] = useState("");
+
+  useEffect(() => {
+    setEditInputValue(task.text);
+  }, []);
+
   return (
     <>
-      <p>This will be the item edition component</p>
+      <form>
+        <input
+          value={editInputValue}
+          onChange={(e) => setEditInputValue(e.target.value)}
+        />
+        <button>Done</button>
+        <button>Cancel</button>
+      </form>
     </>
   );
 }

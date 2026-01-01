@@ -22,7 +22,12 @@ export default function App() {
       return;
     }
 
-    const newTask = { text: task, createdAt: new Date(), checked: false };
+    const newTask = {
+      id: crypto.randomUUID(),
+      text: task,
+      createdAt: new Date(),
+      checked: false,
+    };
 
     const updatedList = [...list, newTask];
     setList(updatedList);
@@ -31,17 +36,19 @@ export default function App() {
     setError(false);
   };
 
-  const removeTask = (i) => {
-    const updatedList = list.filter((_, index) => index !== i);
+  const removeTask = (taskId) => {
+    const updatedList = list.filter((task) => task.id !== taskId);
     setList(updatedList);
     localStorage.setItem("list", JSON.stringify(updatedList));
   };
 
   // Check box for toggle task completion
 
-  function toggleTaskCompletion(i) {
-    const updatedList = [...list];
-    updatedList[i].checked = !updatedList[i].checked;
+  function toggleTaskCompletion(taskId) {
+    const updatedList = list.map((task) =>
+      task.id === taskId ? { ...task, checked: !task.checked } : task
+    );
+
     setList(updatedList);
     localStorage.setItem("list", JSON.stringify(updatedList));
   }

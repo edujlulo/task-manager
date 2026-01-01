@@ -6,11 +6,10 @@ export default function TaskList({ list, removeTask, toggleTaskCompletion }) {
 
   return (
     <ul>
-      {list.map((t, i) => (
+      {list.map((t) => (
         <TaskItem
-          key={i}
+          key={t.id}
           task={t}
-          index={i}
           removeTask={removeTask}
           toggleTaskCompletion={toggleTaskCompletion}
           isEditing={isEditing}
