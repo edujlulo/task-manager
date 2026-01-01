@@ -1,6 +1,7 @@
+import "./ItemEdit.css";
 import { useEffect, useState } from "react";
 
-export default function ItemEdit({ task }) {
+export default function ItemEdit({ task, taskEdition }) {
   const [editInputValue, setEditInputValue] = useState("");
 
   useEffect(() => {
@@ -9,13 +10,26 @@ export default function ItemEdit({ task }) {
 
   return (
     <>
-      <form>
+      <form id="edit-form">
         <input
+          className="edit-input"
           value={editInputValue}
           onChange={(e) => setEditInputValue(e.target.value)}
         />
-        <button>Done</button>
-        <button>Cancel</button>
+        <div className="buttons">
+          <button
+            className="done-button"
+            onClick={() => taskEdition(task.id, editInputValue)}
+          >
+            DONE
+          </button>
+          <button
+            className="cancel-button"
+            onClick={() => taskEdition(task.id, task.text)}
+          >
+            CANCEL
+          </button>
+        </div>
       </form>
     </>
   );

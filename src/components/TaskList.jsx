@@ -1,7 +1,12 @@
 import { useState } from "react";
 import TaskItem from "./TaskItem";
 
-export default function TaskList({ list, removeTask, toggleTaskCompletion }) {
+export default function TaskList({
+  list,
+  removeTask,
+  toggleTaskCompletion,
+  taskEdition,
+}) {
   const [isEditing, setIsEditing] = useState(false);
 
   return (
@@ -14,6 +19,7 @@ export default function TaskList({ list, removeTask, toggleTaskCompletion }) {
           toggleTaskCompletion={toggleTaskCompletion}
           isEditing={isEditing}
           setIsEditing={setIsEditing}
+          taskEdition={taskEdition}
         />
       ))}
     </ul>

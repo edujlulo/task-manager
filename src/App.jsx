@@ -53,6 +53,16 @@ export default function App() {
     localStorage.setItem("list", JSON.stringify(updatedList));
   }
 
+  // Function for tasks edition
+
+  function taskEdition(id, newText) {
+    const updatedList = list.map((task) =>
+      task.id === id ? { ...task, text: newText } : task
+    );
+    setList(updatedList);
+    localStorage.setItem("list", JSON.stringify(updatedList));
+  }
+
   return (
     <div className="container">
       <TaskInput
@@ -68,6 +78,7 @@ export default function App() {
           list={list}
           removeTask={removeTask}
           toggleTaskCompletion={toggleTaskCompletion}
+          taskEdition={taskEdition}
         />
       </div>
     </div>

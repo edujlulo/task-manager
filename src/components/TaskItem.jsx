@@ -12,6 +12,7 @@ export default function TaskItem({
   toggleTaskCompletion,
   isEditing,
   setIsEditing,
+  taskEdition,
 }) {
   const [showItemEdit, setShowItemEdit] = useState(false);
 
@@ -26,7 +27,7 @@ export default function TaskItem({
         {!showItemEdit && (
           <div className={task.checked ? "completedTask" : ""}>{task.text}</div>
         )}
-        {showItemEdit && <ItemEdit task={task} />}
+        {showItemEdit && <ItemEdit task={task} taskEdition={taskEdition} />}
         <div className="dateMessage">
           Created on: {new Date(task.createdAt).toLocaleString()}
         </div>
