@@ -27,7 +27,15 @@ export default function TaskItem({
         {!showItemEdit && (
           <div className={task.checked ? "completedTask" : ""}>{task.text}</div>
         )}
-        {showItemEdit && <ItemEdit task={task} taskEdition={taskEdition} />}
+        {showItemEdit && (
+          <ItemEdit
+            task={task}
+            taskEdition={taskEdition}
+            setShowItemEdit={setShowItemEdit}
+            showItemEdit={showItemEdit}
+            setIsEditing={setIsEditing}
+          />
+        )}
         <div className="dateMessage">
           Created on: {new Date(task.createdAt).toLocaleString()}
         </div>

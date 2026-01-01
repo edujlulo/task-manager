@@ -3,8 +3,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 35rem;
+  width: 100%;
   gap: 0.625rem; /* general spacing */
+  align-items: flex-start;
 }
 
 .edit-input {
@@ -15,6 +16,7 @@
   border-radius: 0.375rem; /* slightly rounded */
   outline: none; /* remove default outline */
   transition: border-color 0.2s, box-shadow 0.2s;
+  width: 90%;
 }
 
 .edit-input:focus {
@@ -25,6 +27,7 @@
 .buttons {
   display: flex;
   gap: 0.5rem; /* spacing between buttons */
+  align-self: flex-start;
 }
 
 .done-button,
@@ -57,4 +60,13 @@
 .cancel-button:hover {
   color: #a71d2a; /* darker red on hover */
   text-decoration: underline;
+}
+
+#errorMessageEdit {
+  margin-bottom: 0.5rem;
+}
+
+#input-container {
+  flex: 1;
+  min-width: 0;
 }
