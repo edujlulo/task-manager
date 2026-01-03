@@ -184,3 +184,8 @@ li:last-child {
   color: gray;
   pointer-events: none;
 }
+
+.div-task-item {
+  flex: 1;
+  min-width: 0;
+}

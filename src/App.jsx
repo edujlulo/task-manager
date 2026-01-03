@@ -2,6 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
+import FilterSort from "./components/FilterSort";
 
 export default function App() {
   const [task, setTask] = useState("");
@@ -73,6 +74,7 @@ export default function App() {
         setError={setError}
       />
       {error && <p className="errorMessage">Please enter a valid value</p>}
+      <FilterSort />
       <div id="listContainer">
         <TaskList
           list={list}

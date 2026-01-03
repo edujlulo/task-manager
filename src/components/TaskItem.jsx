@@ -23,7 +23,7 @@ export default function TaskItem({
 
   return (
     <li className="listBox">
-      <div>
+      <div className="div-task-item">
         {!showItemEdit && (
           <div className={task.checked ? "completedTask" : ""}>{task.text}</div>
         )}

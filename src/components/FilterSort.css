@@ -1,0 +1,42 @@
+/* Container for the filter and sort menus */
+.filterSortContainer {
+  display: flex; /* put elements in a horizontal row */
+  align-items: center; /* vertically align labels and selects */
+  gap: 1rem; /* space between each menu */
+  margin: 1rem 0; /* space above and below */
+  flex-wrap: wrap; /* wrap to the next line on small screens */
+  justify-content: center; /* center horizontally if extra space */
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
+/* Labels for the selects */
+.filterSortContainer label {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-right: 0.25rem; /* space between the label text and the select */
+}
+
+/* Select elements */
+.filterSortContainer select {
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #888;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect for selects */
+.filterSortContainer select:hover {
+  border-color: #4c9681;
+  box-shadow: 0 0 5px rgba(76, 150, 129, 0.5);
+}
+
+/* Focus effect for selects */
+.filterSortContainer select:focus {
+  outline: none;
+  border-color: #2160a0;
+  box-shadow: 0 0 5px rgba(33, 96, 160, 0.5);
+}
