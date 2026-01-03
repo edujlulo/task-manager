@@ -64,6 +64,12 @@ export default function App() {
     localStorage.setItem("list", JSON.stringify(updatedList));
   }
 
+  // Function for filter
+
+  function filterList(value) {
+    console.log(value);
+  }
+
   return (
     <div className="container">
       <TaskInput
@@ -74,7 +80,7 @@ export default function App() {
         setError={setError}
       />
       {error && <p className="errorMessage">Please enter a valid value</p>}
-      <FilterSort />
+      <FilterSort filterList={filterList} />
       <div id="listContainer">
         <TaskList
           list={list}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./FilterSort.css";
 
-export default function FilterSort() {
+export default function FilterSort({ filterList }) {
   const [filter, setFilter] = useState("all");
   const [sort, setSort] = useState("oldest");
 
@@ -12,7 +12,10 @@ export default function FilterSort() {
       <select
         id="filterSelect"
         value={filter}
-        onChange={(e) => setFilter(e.target.value)}
+        onChange={(e) => {
+          setFilter(e.target.value);
+          filterList(e.target.value);
+        }}
       >
         <option value="all">All</option>
         <option value="pending">Pending</option>
