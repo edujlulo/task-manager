@@ -109,7 +109,7 @@ This project is open for demonstration purposes. Add a license file if you plan 
 
 ## Contact
 
-- LinkedIn: https://www.linkedin.com/in/your-profile
-- Email: your.email@example.com
+- LinkedIn: https://www.linkedin.com/in/eduardo-lulo/
+- Portfolio: https://eduardo-lulo-portfolio.netlify.app/
 
 If you'd like, I can also add a short `docs/` folder with screenshots and a one-page summary tailored for recruiters in London.
