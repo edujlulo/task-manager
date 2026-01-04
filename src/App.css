@@ -11,7 +11,7 @@ html {
 }
 
 #form {
-  font-size: 2.25rem;
+  font-size: 2rem;
   font-weight: bold;
   margin-bottom: -0.5625rem;
   display: flex;
@@ -114,7 +114,7 @@ li:last-child {
 
   #form {
     flex-direction: column;
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 
   #form input,

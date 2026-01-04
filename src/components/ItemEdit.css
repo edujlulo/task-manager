@@ -11,7 +11,7 @@
 .edit-input {
   flex: 1;
   padding: 0.5rem 0.75rem; /* comfortable for typing */
-  font-size: 1rem;
+  font-size: 1.3rem;
   border: 1px solid #ccc; /* subtle border */
   border-radius: 0.375rem; /* slightly rounded */
   outline: none; /* remove default outline */
