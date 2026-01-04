@@ -10,12 +10,21 @@ export default function App() {
   const [error, setError] = useState(false);
   const [checkedBox, setCheckedBox] = useState(false);
   const [renderList, setRenderList] = useState([]);
+  const [filterValue, setFilterValue] = useState("all");
+  const [sortValue, setSortValue] = useState(() => {
+    return localStorage.getItem("sortValue") || "oldest";
+  });
 
   useEffect(() => {
     const storedList = JSON.parse(localStorage.getItem("list"));
     if (storedList) {
       setList(storedList);
-      setRenderList(storedList);
+      const sorted = [...storedList].sort((a, b) =>
+        sortValue === "newest"
+          ? new Date(b.createdAt) - new Date(a.createdAt)
+          : new Date(a.createdAt) - new Date(b.createdAt)
+      );
+      setRenderList(sorted);
     }
   }, []);
 
@@ -53,20 +62,39 @@ export default function App() {
 
   useEffect(() => {
     setRenderList(list);
+    filterList(filterValue);
   }, [list]);
 
   // Function for filter
 
+  useEffect(() => {
+    filterList(filterValue);
+  }, [filterValue]);
+
   function filterList(value) {
-    let updatedList = [];
-    if (value === "pending") {
-      updatedList = list.filter((t) => t.checked === false);
-    } else if (value === "completed") {
-      updatedList = list.filter((t) => t.checked === true);
-    } else {
-      updatedList = list;
-    }
-    setRenderList(updatedList);
+    const filters = {
+      pending: (t) => !t.checked,
+      completed: (t) => t.checked,
+    };
+
+    setRenderList(filters[value] ? list.filter(filters[value]) : list);
+  }
+
+  // Function for sorting tasks
+
+  useEffect(() => {
+    localStorage.setItem("sortValue", sortValue);
+    sortTasks(sortValue);
+  }, [sortValue]);
+
+  function sortTasks(order = "newest") {
+    const sortedList = [...renderList].sort((a, b) => {
+      if (order === "newest")
+        return new Date(b.createdAt) - new Date(a.createdAt);
+      else return new Date(a.createdAt) - new Date(b.createdAt);
+    });
+
+    setRenderList(sortedList);
   }
 
   // Check box for toggle task completion
@@ -100,7 +128,12 @@ export default function App() {
         setError={setError}
       />
       {error && <p className="errorMessage">Please enter a valid value</p>}
-      <FilterSort filterList={filterList} />
+      <FilterSort
+        filterValue={filterValue}
+        setFilterValue={setFilterValue}
+        sortValue={sortValue}
+        setSortValue={setSortValue}
+      />
       <div id="listContainer">
         <TaskList
           renderList={renderList}
