@@ -9,11 +9,17 @@ export default function App() {
   const [list, setList] = useState([]);
   const [error, setError] = useState(false);
   const [checkedBox, setCheckedBox] = useState(false);
+  const [renderList, setRenderList] = useState([]);
 
   useEffect(() => {
     const storedList = JSON.parse(localStorage.getItem("list"));
-    if (storedList) setList(storedList);
+    if (storedList) {
+      setList(storedList);
+      setRenderList(storedList);
+    }
   }, []);
+
+  // Tasks adition to list function
 
   const addTask = (e) => {
     if (e) e.preventDefault();
@@ -43,6 +49,26 @@ export default function App() {
     localStorage.setItem("list", JSON.stringify(updatedList));
   };
 
+  // List modifications for rendering
+
+  useEffect(() => {
+    setRenderList(list);
+  }, [list]);
+
+  // Function for filter
+
+  function filterList(value) {
+    let updatedList = [];
+    if (value === "pending") {
+      updatedList = list.filter((t) => t.checked === false);
+    } else if (value === "completed") {
+      updatedList = list.filter((t) => t.checked === true);
+    } else {
+      updatedList = list;
+    }
+    setRenderList(updatedList);
+  }
+
   // Check box for toggle task completion
 
   function toggleTaskCompletion(taskId) {
@@ -64,12 +90,6 @@ export default function App() {
     localStorage.setItem("list", JSON.stringify(updatedList));
   }
 
-  // Function for filter
-
-  function filterList(value) {
-    console.log(value);
-  }
-
   return (
     <div className="container">
       <TaskInput
@@ -83,7 +103,7 @@ export default function App() {
       <FilterSort filterList={filterList} />
       <div id="listContainer">
         <TaskList
-          list={list}
+          renderList={renderList}
           removeTask={removeTask}
           toggleTaskCompletion={toggleTaskCompletion}
           taskEdition={taskEdition}

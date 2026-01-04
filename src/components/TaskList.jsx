@@ -2,7 +2,7 @@ import { useState } from "react";
 import TaskItem from "./TaskItem";
 
 export default function TaskList({
-  list,
+  renderList,
   removeTask,
   toggleTaskCompletion,
   taskEdition,
@@ -11,7 +11,7 @@ export default function TaskList({
 
   return (
     <ul>
-      {list.map((t) => (
+      {renderList.map((t) => (
         <TaskItem
           key={t.id}
           task={t}
