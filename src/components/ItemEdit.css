@@ -70,3 +70,35 @@
   flex: 1;
   min-width: 0;
 }
+
+/* Mobile styles */
+@media (max-width: 550px) {
+  #edit-form {
+    flex-direction: column; /* apilar verticalmente */
+    align-items: stretch; /* input y botones ocupen ancho completo */
+    gap: 0.5rem;
+  }
+
+  .edit-input {
+    font-size: 1rem; /* ligeramente más pequeño */
+    width: 100%; /* ocupa toda la fila */
+    padding: 0.4rem 0.6rem;
+  }
+
+  .buttons {
+    flex-direction: row; /* botones uno al lado del otro */
+    justify-content: flex-start;
+    gap: 0.5rem;
+    flex-wrap: wrap; /* si no caben, pasan a la siguiente línea */
+  }
+
+  .done-button,
+  .cancel-button {
+    font-size: 0.9rem;
+    padding: 0.35rem 0.5rem;
+  }
+
+  #errorMessageEdit {
+    font-size: 0.875rem;
+  }
+}

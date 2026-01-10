@@ -99,7 +99,6 @@ export default function App() {
         error={error}
         setError={setError}
       />
-      {error && <p className="errorMessage">Please enter a valid value</p>}
       <FilterSort
         filterValue={filterValue}
         setFilterValue={setFilterValue}
