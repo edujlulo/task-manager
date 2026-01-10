@@ -1,42 +1,80 @@
-/* Container for the filter and sort menus */
-.filterSortContainer {
-  display: flex; /* put elements in a horizontal row */
-  align-items: center; /* vertically align labels and selects */
-  gap: 1rem; /* space between each menu */
-  margin: 1rem 0; /* space above and below */
-  flex-wrap: wrap; /* wrap to the next line on small screens */
-  justify-content: center; /* center horizontally if extra space */
-  margin-top: 2rem;
-  margin-bottom: 0;
+/* Main container */
+.filter-sort-container {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0.75rem;
+  background-color: #f8fafc;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
 }
 
-/* Labels for the selects */
-.filterSortContainer label {
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-right: 0.25rem; /* space between the label text and the select */
+/* Each label + select row */
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-/* Select elements */
-.filterSortContainer select {
-  padding: 0.25rem 0.5rem;
-  font-size: 1rem;
-  border-radius: 0.25rem;
-  border: 1px solid #888;
+/* Labels */
+.filter-sort-container label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+  white-space: nowrap;
+}
+
+/* Selects */
+.filter-sort-container select {
+  appearance: none;
+  padding: 0.35rem 1.75rem 0.35rem 0.5rem;
+  font-size: 0.85rem;
+  border-radius: 0.4rem;
+  border: 1px solid #d1d5db;
+  background-color: #ffffff;
+  color: #111827;
   cursor: pointer;
-  background-color: #f9f9f9;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 0.9rem;
 }
 
-/* Hover effect for selects */
-.filterSortContainer select:hover {
-  border-color: #4c9681;
-  box-shadow: 0 0 5px rgba(76, 150, 129, 0.5);
+/* Hover */
+.filter-sort-container select:hover {
+  border-color: #6366f1;
 }
 
-/* Focus effect for selects */
-.filterSortContainer select:focus {
+/* Focus */
+.filter-sort-container select:focus {
   outline: none;
-  border-color: #2160a0;
-  box-shadow: 0 0 5px rgba(33, 96, 160, 0.5);
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+/* 📱 Mobile */
+@media (max-width: 550px) {
+  .filter-sort-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.4rem;
+    margin-bottom: -0.85rem;
+    margin-top: 1rem;
+  }
+
+  .filter-row {
+    justify-content: space-between;
+  }
+
+  .filter-sort-container label {
+    font-size: 0.75rem;
+  }
+
+  .filter-sort-container select {
+    font-size: 0.8rem;
+  }
 }
