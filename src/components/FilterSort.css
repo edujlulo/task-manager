@@ -5,7 +5,8 @@
   padding: 0.5rem 0.75rem;
   background-color: #f8fafc;
   border-radius: 0.75rem;
-  border: 1px solid #e5e7eb;
+  /* border: 1px solid #e5e7eb; */
+  border: 0.075rem solid rgba(0, 0, 0, 0.784);
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 1.5rem;

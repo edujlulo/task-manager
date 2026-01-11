@@ -1,0 +1,25 @@
+.app-footer {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #3a5f8a;
+  color: #ffffff;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+.app-footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.app-footer a:hover {
+  color: #cceeff; /* ligero cambio al pasar el mouse */
+}
+
+@media (max-width: 550px) {
+  .app-footer {
+    font-size: 0.8rem;
+    padding: 0.5rem 0;
+  }
+}

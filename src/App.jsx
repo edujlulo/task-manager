@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
 import FilterSort from "./components/FilterSort";
+import Footer from "./components/Footer";
 
 export default function App() {
   // State
@@ -92,27 +93,30 @@ export default function App() {
 
   return (
     <div className="container">
-      <TaskInput
-        task={task}
-        setTask={setTask}
-        addTask={addTask}
-        error={error}
-        setError={setError}
-      />
-      <FilterSort
-        filterValue={filterValue}
-        setFilterValue={setFilterValue}
-        sortValue={sortValue}
-        setSortValue={setSortValue}
-      />
-      <div id="listContainer">
-        <TaskList
-          renderList={renderList}
-          removeTask={removeTask}
-          toggleTaskCompletion={toggleTaskCompletion}
-          taskEdition={taskEdition}
+      <div className="main-content">
+        <TaskInput
+          task={task}
+          setTask={setTask}
+          addTask={addTask}
+          error={error}
+          setError={setError}
         />
+        <FilterSort
+          filterValue={filterValue}
+          setFilterValue={setFilterValue}
+          sortValue={sortValue}
+          setSortValue={setSortValue}
+        />
+        <div id="listContainer">
+          <TaskList
+            renderList={renderList}
+            removeTask={removeTask}
+            toggleTaskCompletion={toggleTaskCompletion}
+            taskEdition={taskEdition}
+          />
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }
